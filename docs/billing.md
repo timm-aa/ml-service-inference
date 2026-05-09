@@ -9,7 +9,7 @@
 ## Скидка по уровню лояльности (вариант Б)
 
 - У пользователя есть `loyalty_tier_id`, уровень задаётся в `loyalty_tiers` с полями `min_predictions_monthly` и `discount_percent`.
-- Фактическая цена: \( \max(1, \mathrm{round}(\mathrm{base} \times (100 - \mathrm{discount}) / 100)) \) — см. `app/services/pricing.py`.
+- Фактическая цена (как в `discounted_cost` в `app/services/pricing.py`): при `base_credits ≤ 0` — `0`; иначе скидка в процентах ограничивается \(d = \min(100,\max(0,\mathrm{discount\_percent}))\), затем \(\max\bigl(1,\ \mathrm{round}(\mathrm{base}\cdot(100-d)/100)\bigr)\) кредитов.
 - Уровень пересчитывается фоновой задачей Celery Beat **1-го числа каждого месяца** по числу **успешных** предсказаний за **предыдущий календарный месяц** (`worker.tasks.recalculate_loyalty_monthly`).
 
 ## Когда списываются кредиты
