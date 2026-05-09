@@ -1,8 +1,32 @@
 # ML Prediction Service
 
-**Асинхронный inference scikit-learn с биллингом по кредитам и программой лояльности (вариант B).**
+**Асинхронный inference scikit-learn с биллингом по кредитам и программой лояльности.**
 
 > **EN:** FastAPI + PostgreSQL + Redis/Celery stack: JWT auth, credit billing with idempotent charges, async prediction jobs, Bronze/Silver/Gold loyalty tiers with monthly recalculation, Streamlit analytics, Prometheus/Grafana.
+
+---
+
+## Публикация на GitHub
+
+1. На [github.com/new](https://github.com/new) создайте **пустой** репозиторий (без галочек «Add README», `.gitignore`, license — чтобы не было лишнего первого коммита на сервере).
+2. В каталоге проекта:
+
+```bash
+cd "/Users/timm_aa/Study/ML Services"   # или ваш путь к клону
+git remote add origin https://github.com/<USER>/<REPO>.git
+git push -u origin main
+```
+
+Замените `<USER>` и `<REPO>` на свой логин и имя репозитория. Если `origin` уже был (например, на GitLab), сначала: `git remote remove origin`.
+
+**HTTPS:** при запросе пароля GitHub используйте **Personal Access Token** (Settings → Developer settings), не пароль от аккаунта.
+
+**SSH** (если ключ добавлен в GitHub):
+
+```bash
+git remote add origin git@github.com:<USER>/<REPO>.git
+git push -u origin main
+```
 
 ---
 
@@ -27,8 +51,8 @@
 Требования: **Docker** и **Docker Compose v2**.
 
 ```bash
-git clone <your-repo-url>
-cd "ML Services"
+git clone https://github.com/<USER>/<REPO>.git
+cd <REPO>   # или "ML Services", если репозиторий так назван
 cp .env.example .env   # при необходимости поправьте значения
 docker compose up -d --build
 ```
