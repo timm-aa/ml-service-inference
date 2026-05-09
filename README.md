@@ -6,30 +6,6 @@
 
 ---
 
-## Публикация на GitHub
-
-1. На [github.com/new](https://github.com/new) создайте **пустой** репозиторий (без галочек «Add README», `.gitignore`, license — чтобы не было лишнего первого коммита на сервере).
-2. В каталоге проекта:
-
-```bash
-cd "/Users/timm_aa/Study/ML Services"   # или ваш путь к клону
-git remote add origin https://github.com/<USER>/<REPO>.git
-git push -u origin main
-```
-
-Замените `<USER>` и `<REPO>` на свой логин и имя репозитория. Если `origin` уже был (например, на GitLab), сначала: `git remote remove origin`.
-
-**HTTPS:** при запросе пароля GitHub используйте **Personal Access Token** (Settings → Developer settings), не пароль от аккаунта.
-
-**SSH** (если ключ добавлен в GitHub):
-
-```bash
-git remote add origin git@github.com:<USER>/<REPO>.git
-git push -u origin main
-```
-
----
-
 ## Возможности
 
 | Область | Описание |
@@ -143,9 +119,3 @@ flowchart LR
   Prometheus[Prometheus] --> API
   Grafana[Grafana] --> Prometheus
 ```
-
----
-
-## Лицензия
-
-Укажите лицензию по желанию (например MIT) — файл `LICENSE` в репозитории при необходимости добавьте вручную.
